@@ -32,7 +32,7 @@ const cta=`<section class="cta"><div class="wrap"><div class="eyebrow">Take acti
 page({path:'/',cur:'',title:'Seven Management | Luxury Hosts and Event Talent Agency, Singapore',
 desc:"Singapore's luxury talent and event agency. Book international hosts, models and performers for private events, launches and nightlife. Enquire in two minutes.",
 schema:[{"@context":"https://schema.org","@type":"WebSite","name":site.name,"url":D+"/"}],
-body:`<section class="hero" style="padding-block-start:8rem;padding-block-end:clamp(2.5rem,6vw,5rem)"><div class="blobs" aria-hidden="true"><i class="blob b1"></i><i class="blob b2"></i></div><div class="tick">Singapore &middot; 1&deg;17&prime;N</div>
+body:`<section class="hero"><div class="blobs" aria-hidden="true"><i class="blob b1"></i><i class="blob b2"></i></div><div class="tick">Singapore &middot; 1&deg;17&prime;N</div>
 <div class="eyebrow">Talent &amp; event management</div>
 <h1 style="margin-top:1.6rem"><span class="ln"><span>Curated Nights.</span></span><span class="ln"><span><em>Elevated</em> Connections.</span></span></h1>
 <div class="row"><p>Crafting unforgettable nights through art, atmosphere and connection. International hosts for Singapore's private events and nightlife.</p><a class="btn solid" href="/contact/">Book an event <i></i></a></div></section>
