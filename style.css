@@ -228,7 +228,7 @@ body{animation:pg .9s var(--ease) both}
   .blob{filter:blur(36px)}
   .b1{width:110vw;height:110vw;right:-40vw;top:0}
   .b2{display:none}
-  .hero{padding-top:6.5rem}
+  .hero{padding-top:6.5rem;padding-bottom:calc(5.5rem + env(safe-area-inset-bottom))}
   .hero h1{font-size:clamp(2.7rem,13.5vw,4.4rem)}
   .hero p{font-size:1rem}
   .hero .btn,.cta .btn{width:100%;justify-content:space-between}
