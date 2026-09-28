@@ -5,7 +5,7 @@ const wa=`https://wa.me/${site.whatsapp}`;
 const fonts=`<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Hanken+Grotesk:wght@400;500&display=swap" rel="stylesheet">`;
 const org={"@context":"https://schema.org","@type":["Organization","LocalBusiness"],"name":site.name,"url":D+"/","description":site.desc,"email":site.email,"areaServed":{"@type":"Country","name":"Singapore"},"address":{"@type":"PostalAddress","addressCountry":"SG"},"parentOrganization":{"@type":"Organization","name":site.owner}};
 const nav=(cur)=>`<a class="skip" href="#main">Skip to content</a>
-<header class="nav"><a class="logo" href="/" aria-label="Seven Management home"><img src="/assets/logo.png" alt="" width="34" height="34"><span>Seven <b>Mgmt</b></span></a>
+<header class="nav"><div class="prog" aria-hidden="true"></div><a class="logo" href="/" aria-label="Seven Management home"><img src="/assets/logo.png" alt="" width="34" height="34"><span>Seven <b>Mgmt</b></span></a>
 <button class="menu-btn" aria-expanded="false" aria-controls="menu">Menu</button>
 <ul id="menu">${[['/#about','About','about'],['/hosts/','Hosts','hosts'],['/contact/','Enquire','contact']].map(([h,t,k])=>`<li><a class="l" href="${h}"${cur===k?' aria-current="page"':''}>${t}</a></li>`).join('')}</ul></header>`;
 const foot=`<footer><div class="foot"><div><a class="logo" href="/"><img src="/assets/logo.png" alt="" width="34" height="34"><span>Seven <b>Mgmt</b></span></a><p style="margin-top:1rem;max-width:20rem">Luxury talent and event management. Singapore.</p></div>
@@ -19,7 +19,7 @@ const page=({path,title,desc,cur,body,schema=[],og='/assets/og.jpg',noindex=fals
  const html=`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>${title}</title><meta name="description" content="${desc}"><link rel="canonical" href="${url}">${noindex?'<meta name="robots" content="noindex">':''}
 <meta name="theme-color" content="#0f0f12"><meta property="og:type" content="website"><meta property="og:title" content="${title}"><meta property="og:description" content="${desc}"><meta property="og:url" content="${url}"><meta property="og:image" content="${D+og}"><meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="/assets/favicon.png" type="image/png">${fonts}<link rel="stylesheet" href="/style.css">
+<link rel="icon" href="/assets/favicon.png" type="image/png">${fonts}<script>document.documentElement.classList.add("js")</script><link rel="stylesheet" href="/style.css">
 ${[org,...schema].map(s=>`<script type="application/ld+json">${JSON.stringify(s)}</script>`).join('\n')}
 </head><body>${nav(cur)}<main id="main">${body}</main>${foot}</body></html>`;
  const f=path.endsWith('/')?path+'index.html':path;
@@ -32,11 +32,11 @@ const cta=`<section class="cta"><div class="wrap"><div class="eyebrow">Take acti
 page({path:'/',cur:'',title:'Seven Management | Luxury Hosts and Event Talent Agency, Singapore',
 desc:"Singapore's luxury talent and event agency. Book international hosts, models and performers for private events, launches and nightlife. Enquire in two minutes.",
 schema:[{"@context":"https://schema.org","@type":"WebSite","name":site.name,"url":D+"/"}],
-body:`<section class="hero" style="padding-block-start:8rem;padding-block-end:clamp(2.5rem,6vw,5rem)"><div class="tick">Singapore &middot; 1&deg;17&prime;N</div>
+body:`<section class="hero" style="padding-block-start:8rem;padding-block-end:clamp(2.5rem,6vw,5rem)"><div class="blobs" aria-hidden="true"><i class="blob b1"></i><i class="blob b2"></i></div><div class="tick">Singapore &middot; 1&deg;17&prime;N</div>
 <div class="eyebrow">Talent &amp; event management</div>
 <h1 style="margin-top:1.6rem"><span class="ln"><span>Curated Nights.</span></span><span class="ln"><span><em>Elevated</em> Connections.</span></span></h1>
 <div class="row"><p>Crafting unforgettable nights through art, atmosphere and connection. International hosts for Singapore's private events and nightlife.</p><a class="btn solid" href="/contact/">Book an event <i></i></a></div></section>
-<section id="hosts"><div class="wrap"><div class="sec-head"><div><div class="eyebrow">Our hosts</div><h2>Our <em>international</em> hosts</h2></div><a class="link" href="/hosts/">Explore more</a></div>
+<div class="mq" aria-hidden="true"><div class="mq-t"><span>Curated Nights</span><span class="d">&#10022;</span><span><em>Elevated</em> Connections</span><span class="d">&#10022;</span><span>Singapore</span><span class="d">&#10022;</span><span>Curated Nights</span><span class="d">&#10022;</span><span><em>Elevated</em> Connections</span><span class="d">&#10022;</span><span>Singapore</span><span class="d">&#10022;</span></div></div><section id="hosts"><div class="wrap"><div class="sec-head"><div><div class="eyebrow">Our hosts</div><h2>Our <em>international</em> hosts</h2></div><a class="link" href="/hosts/">Explore more</a></div>
 <div class="grid">${hosts.map(card).join('')}</div>
 <p style="color:var(--mute);max-width:40rem;margin-top:3.5rem">Representing a diverse selection of international hosts, models and performers, Seven Management embodies the cosmopolitan spirit of Singapore. Each is selected for professionalism, presence and the ability to turn every moment into a memorable experience.</p></div></section>
 <section class="apart"><div class="wrap"><div class="eyebrow">What sets us apart</div>
