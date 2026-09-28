@@ -1,6 +1,6 @@
 import {mkdirSync,writeFileSync} from 'node:fs';
 import {site,hosts} from './data.mjs';
-const D=site.domain;const BASE=process.env.BASE||'';
+const D=site.domain;const VER=Date.now().toString(36);const BASE=process.env.BASE||'';
 const wa=`https://wa.me/${site.whatsapp}`;
 const fonts=`<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Hanken+Grotesk:wght@400;500&display=swap" rel="stylesheet">`;
 const org={"@context":"https://schema.org","@type":["Organization","LocalBusiness"],"name":site.name,"url":D+"/","description":site.desc,"email":site.email,"areaServed":{"@type":"Country","name":"Singapore"},"address":{"@type":"PostalAddress","addressCountry":"SG"},"parentOrganization":{"@type":"Organization","name":site.owner}};
@@ -13,13 +13,13 @@ const foot=`<footer><div class="foot"><div><a class="logo" href="/"><img src="/a
 <div><h4>Contact</h4><ul><li><a href="mailto:${site.email}">${site.email}</a></li><li><a href="${wa}" rel="noopener">WhatsApp</a></li></ul></div></div>
 <div class="legal"><span>&copy; 2025 ${site.name}. Owned by ${site.owner}.</span><a href="/terms-and-conditions/">Privacy Policy + Terms of Use</a></div></footer>
 <nav class="bar" aria-label="Quick contact"><a href="${wa}" rel="noopener">WhatsApp</a><a href="/contact/">Book an event</a></nav>
-<script src="/site.js" defer></script>`;
+<script src="/site.js?v=${VER}" defer></script>`;
 const page=({path,title,desc,cur,body,schema=[],og='/assets/og.jpg',noindex=false})=>{
  const url=D+path;
  const html=`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>${title}</title><meta name="description" content="${desc}"><link rel="canonical" href="${url}">${noindex?'<meta name="robots" content="noindex">':''}
 <meta name="theme-color" content="#0f0f12"><meta property="og:type" content="website"><meta property="og:title" content="${title}"><meta property="og:description" content="${desc}"><meta property="og:url" content="${url}"><meta property="og:image" content="${D+og}"><meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="/assets/favicon.png" type="image/png">${fonts}<script>document.documentElement.classList.add("js")</script><link rel="stylesheet" href="/style.css">
+<link rel="icon" href="/assets/favicon.png" type="image/png">${fonts}<script>document.documentElement.classList.add("js")</script><link rel="stylesheet" href="/style.css?v=${VER}">
 ${[org,...schema].map(s=>`<script type="application/ld+json">${JSON.stringify(s)}</script>`).join('\n')}
 </head><body>${nav(cur)}<main id="main">${body}</main>${foot}</body></html>`;
  const f=path.endsWith('/')?path+'index.html':path;
